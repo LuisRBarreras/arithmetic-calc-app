@@ -4,10 +4,9 @@ import Table from 'react-bootstrap/Table';
 import Pagination from 'react-bootstrap/Pagination';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
-
-import { API_RULE } from '../constants';
-
+import { API_URL } from '../constants';
 
 function Records() {
   const [records, setRecords] = useState([])
@@ -18,7 +17,7 @@ function Records() {
   const size = 10
 
   const makeRecordRequest = (params) => {
-    return axios.get(`${API_RULE}/records`, { headers: { Authorization: token }, params })
+    return axios.get(`${API_URL}/records`, { headers: { Authorization: token }, params })
   }
   const searchHandler = async (e) => {
     setSearchValue(e.target.value)
@@ -45,6 +44,10 @@ function Records() {
         setRecords(response.data.rows)
       })
   }
+  const handlerDelete = async (recordId) => {
+    await axios.delete(`${API_URL}/records/${recordId}`, { headers: { Authorization: token } })
+    getRecords(0)
+  }
   
   useEffect(() => {
     getRecords(activePage)
@@ -68,21 +71,27 @@ function Records() {
             <th>Operation Response</th>
             <th>Amount/Cost</th>
             <th>User Valance</th>
+            <th>Date</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {records.map((e) => {
+          {records.map((record) => {
             return (
-              <tr key={e.id}>
-                <td>{e.id}</td>
-                <td>{e.type}</td>
-                <td>{e.operationResponse}</td>
-                <td>{e.amount}</td>
-                <td>{e.userBalance}</td>
+              <tr key={record.id}>
+                <td>{record.id}</td>
+                <td>{record.type}</td>
+                <td>{record.operationResponse}</td>
+                <td>{record.amount}</td>
+                <td>{record.userBalance}</td>
+                <td>{record.date}</td>
+                <td>
+                <Button variant="danger" onClick={(e) => handlerDelete(record.id)}>Delete</Button>
+                </td>
               </tr>
             )
           })}
-          <Pagination size="md">
+          <Pagination size="md" className='pagination'>
             <Pagination.Prev />
             {totalPages.map((e, index) => {
               return (

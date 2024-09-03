@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import { API_URL } from '../constants'
 
 export default function Login () {
   const navigate = useNavigate()
   function onSubmitUsername(username, password) {
-    axios.post('http://localhost:3000/auth/login', {
+    axios.post(`${API_URL}/auth/login`, {
       username, password
   }).then(response => {
     const { token } = response.data
