@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import { API_URL } from '../constants'
@@ -27,6 +27,13 @@ export default function Login () {
     const password = event.currentTarget.elements.passwordInput.value
     onSubmitUsername(username, password)
   }
+
+  useEffect(() => {
+    // Clear tokens
+    localStorage.setItem('token', null) 
+    localStorage.setItem('credit',100)
+    
+  })
   
     return (
       <form onSubmit={handleSubmit}>

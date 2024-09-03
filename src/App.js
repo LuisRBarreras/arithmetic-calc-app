@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './components/login';
 import Records from './components/records';
 import TopSection from './components/topSection';
+import PerformOperation from './components/performOperation';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/sign-in" element={<Login />} />
+              <Route path="/perform-operation" element={<PerformOperation />} />
               <Route path="/records" element={<Records />} />
             </Routes>
           </div>
