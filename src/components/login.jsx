@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 export default function Login () {
+  const navigate = useNavigate()
   function onSubmitUsername(username, password) {
     axios.post('http://localhost:3000/auth/login', {
       username, password
   }).then(response => {
-    console.log(response)
     const { token } = response.data
-    localStorage.setItem('token',token);
+    if(token) {
+      localStorage.setItem('token',token)
+      navigate("/records")
+      return
+      
+    }
   })
 
   }
@@ -31,7 +37,7 @@ export default function Login () {
             placeholder="Enter email"
             id="usernameInput"
           />
-          <label for="usernameInput" >Username</label>
+          <label htmlFor="usernameInput" >Username</label>
         </div>
         <div className="form-floating mb-3">
           <input
@@ -40,7 +46,7 @@ export default function Login () {
             placeholder="Enter password"
             id="passwordInput"
             />
-            <label for="passwordInput">Password</label>
+            <label htmlFor="passwordInput">Password</label>
         </div>
         <div className="form-floating ">
           <button type="submit" className="btn btn-primary">

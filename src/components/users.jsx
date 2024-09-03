@@ -10,7 +10,6 @@ function Users() {
   const getUsers = async() => {
     await axios.get('http://localhost:3000/users')
     .then(response => {
-      console.log(`Get Users: ${response.data}`)
       setUsers(response.data)
     })
   }
