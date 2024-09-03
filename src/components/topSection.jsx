@@ -13,7 +13,7 @@ function TopSection() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav >
-            <Nav.Link href="/perform-operation">Records</Nav.Link>
+            <Nav.Link href="/records">Records</Nav.Link>
             <Nav.Link href="/perform-operation">New Operation</Nav.Link>
             <Nav.Link href="/sign-in">Login</Nav.Link>
           </Nav>
