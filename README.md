@@ -9,9 +9,9 @@ Make sure you have Node.js version 20 or a similar version installed on your sys
 Install NVM:
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash`
 Install Nodejs version 20:
-`nvm install 20`
+`nvm install 20.6.0`
 Use Nodejs version 2`
-`nvm install 20`
+`nvm use 20.6.0`
 
 ## Instruction to execute project locally:
 1. Copy the .env_sample file and rename it to .env:
