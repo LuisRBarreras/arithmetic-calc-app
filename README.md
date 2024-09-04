@@ -16,13 +16,8 @@ This project serves as the front-end for an application that provides simple cal
 1. Copy the .env_sample file and rename it to .env:
 2. Run `npm start`
 
-
-
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
+## Deployment
+1. Use command `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
