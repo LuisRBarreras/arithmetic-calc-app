@@ -1,16 +1,15 @@
 # Arithmetic Calculator APP Front end 
 This project serves as the front-end for an application that provides simple calculator functionality, offering users basic arithmetic operations
 
-## Available Scripts
 
 
 ## Prerequisites:
-Make sure you have Node.js version 20 or a similar version installed on your system.
-Install NVM:
+### Make sure you have Node.js version 20 or a similar version installed on your system.
+1. Install NVM:
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash`
-Install Nodejs version 20:
+2. Install Nodejs version 20:
 `nvm install 20.6.0`
-Use Nodejs version 2`
+3. Use Nodejs version 2`
 `nvm use 20.6.0`
 
 ## Instruction to execute project locally:
