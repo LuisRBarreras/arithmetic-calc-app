@@ -8,16 +8,14 @@ export default function Login () {
   function onSubmitUsername(username, password) {
     axios.post(`${API_URL}/auth/login`, {
       username, password
-  }).then(response => {
-    const { token } = response.data
-    if(token) {
-      localStorage.setItem('token',token)
-      navigate("/records")
-      return
-      
-    }
-  })
-
+    }).then(response => {
+      const { token } = response.data
+      if(token) {
+        localStorage.setItem('token',token)
+        navigate("/records")
+        return
+      }
+    })
   }
   
   function handleSubmit(event) {
@@ -32,7 +30,6 @@ export default function Login () {
     // Clear tokens
     localStorage.setItem('token', null) 
     localStorage.setItem('credit',100)
-    
   })
   
     return (
